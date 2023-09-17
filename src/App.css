@@ -1,38 +1,58 @@
 .App {
-  text-align: center;
+  padding: 40px;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.download-list {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.single-file-container {
   display: flex;
   flex-direction: column;
-  align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
+  align-items: center;
+  gap: 10px;
+  padding: 40px;
+  border: 1px solid #dedede;
+  position: relative;
 
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+  .download-button {
+    padding: 8px 16px;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
   }
-  to {
-    transform: rotate(360deg);
+
+  .progress-bar {
+    position: absolute;
+    padding: 2px;
+    bottom: 5px;
+    width: 200px;
+    height: 30px;
+    border: 1px solid #dedede;
+
+    .completed {
+      height: 30px;
+      background: #90EE90;
+    }
+
+    .progress-indicator {
+      font-weight: bold;
+      color: rgba(0, 0, 0, 0.5);
+      position: absolute;
+      left: 45%;
+      bottom: 5px;
+    }
+  }
+}
+
+@keyframes slide {
+  0% {
+    transform: translateX(-100%);
+  }
+
+  100% {
+    transform: translateX(100%);
   }
 }
